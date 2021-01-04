@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Atividade 7</title>
+        <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+    </head>
+
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+        }
+        label{
+            font-weight: bold;
+        }
+        input:focus{
+            background-color: rgba(0, 200, 255, 0.493);
+        }
+        h1{
+            font-variant: small-caps;
+            border-bottom: solid 2px rgb(0, 20, 100);
+        }
+    </style>
+
+    <body>
+        <h1>Tela simples de criação de conta</h1>
+        <form name="login">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="FullName" required>
+            <br>
+            <label for="senha">Senha: </label>
+            <input type="password" name="senha" id="Password" required>
+            <br>
+            <label for="confSenha">Confirme sua senha: </label>
+            <input type="password" name="confSenha" id="ConfirmPass" required>
+            <br>
+            <label for="genero">Gênero: </label>
+            Masculino
+            <input type="radio" id="Male" name="genero" value="male" checked>           
+            Feminino
+            <input type="radio" id="Female" name="genero" value="female">           
+            <br>
+            <label for="email">E-mail: </label>
+            <input type="text" name="email" id="Email" required>
+            <br>
+            <label for="telefone">Telefone: </label>
+            <input type="text" name="telefone" id="Cellphone" required>
+            <br>
+            <label for="endereco">Endereço: </label>
+            <input type="text" name="endereco" id="Address" required>
+            <br>
+            <label for="complemento">Complemento: </label>
+            <select name="complemento" id="Complement">
+                <option value="casa" selected>Casa</option>
+                <option value="apto">Apartamento</option>
+            </select>
+            <br>
+            <label for="contato">Preferência de contato: </label>
+            <input type="checkbox" name="contato" id="CellphoneContact" value="telefone" checked>Telefone
+            <input type="checkbox" name="contato" id="EmailContact" value="email">Email
+            <br>
+            <input type="button" id="SendButton" value="Enviar" onclick="validateForm()">
+
+        </form>
+
+        <script>
+            function validateForm(){
+                let form = window.document.login;
+
+                console.log(window.document.forms);
+
+                let pass = form.senha.value;
+                let confPass = form.confSenha.value;
+                let email = form.email.value;
+                if (pass.length < 8){
+                    console.log("A senha deve conter pelo menos 8 caracteres.")
+                    window.alert("A senha deve conter pelo menos 8 caracteres.");
+                }
+                if (pass != confPass) {
+                    console.log("Senhas diferentes!")        
+                    window.alert("Senhas diferentes!");
+        
+                }
+                let containsAt = email.includes("@");
+                if (!containsAt){
+                    console.log("O email informado não é válido.")
+                    window.alert("O email informado não é válido.   ");
+
+                }
+                
+
+            }
+        </script>
+    </body>
+</html>
